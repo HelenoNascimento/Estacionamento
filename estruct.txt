@@ -1,0 +1,41 @@
+
+
+
+user
+name
+email
+password
+
+_id: ID do estacionamento
+nome: Nome do estacionamento
+endereço: Endereço do estacionamento
+vagas_disponíveis: Número de vagas disponíveis no estacionamento
+total_vagas: Número total de vagas no estacionamento
+preço_por_hora: Preço por hora de estacionamento
+horário_de_funcionamento: Horário de funcionamento do estacionamento
+
+
+Coleção de Clientes:
+_id: ID do cliente
+nome: Nome do cliente
+cpf: CPF do cliente
+telefone: Número de telefone do cliente
+email: Endereço de e-mail do cliente
+endereco: Endereço do cliente
+placa_do_carro: Placa do carro do cliente
+
+Coleção de Vagas:
+_id: ID da vaga
+estacionamento_id: ID do estacionamento
+numero: Número da vaga
+disponivel: Indicador de disponibilidade da vaga (true/false)
+cliente_id: ID do cliente que alugou a vaga (se estiver alugada)
+
+Coleção de Aluguéis:
+_id: ID do aluguel
+cliente_id: ID do cliente que alugou a vaga
+vaga_id: ID da vaga alugada
+data_inicio: Data de início do aluguel
+data_fim: Data de fim do aluguel
+preco_mensal: Preço mensal da vaga alugada
+status: Status atual do aluguel (ativo, vencido, cancelado)
