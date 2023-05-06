@@ -7,13 +7,46 @@
       </div>
     <h1>Lista de clientes</h1>
 
-    <div *ngFor="let client of clients"  class="card">
+    <div class="card">
+        <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Endereco</th>
+                <th scope="col">Placa</th>
+                <th scope="col">Detalhes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let client of clients let index = index" >
+                <th scope="row">{{index}}</th>
+                <td>{{client.name}}</td>
+                <td>{{client.email}}</td>
+                <td>{{client.cpf}}</td>
+                <td>{{client.telefone}}</td>
+                <td>{{client.endereco}}</td>
+                <td>{{client.plate}}</td>
+                <td>
+                    <button class="btn btn-info" (click)="infoClient(client._id)">Detalhes</button>
+                  </td>
+              </tr>
+          
+            </tbody>
+          </table>
+
+    </div>
+
+    <div *ngFor="let client of clients"  class="card mb-4">
         <div class="card-body">
-            <p class="fs-5">{{client.name}}</p>
-            <p>{{client.cpf}}</p>
-            <p>{{client.telefone}}</p>
-            <p>{{client.email}}</p>
-            <p>{{client.plate}}</p>
+            <p class="fs-5">Nome: {{client.name}}</p>
+            <p>CPF: {{client.cpf}}</p>
+            <p>Telefone {{client.telefone}}</p>
+            <p>Email {{client.email}}</p>
+            <p>Placa {{client.plate}}</p>
         
         </div>
        

@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ClientService } from './services/client.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NewClientComponent } from './components/client-data/new-client/new-client.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ClientInfoComponent } from './components/client-data/client-info/client-info.component';
 
 //import { NavbarComponent } from './components/navbar/navbar.component';
 
@@ -15,13 +17,15 @@ import { NewClientComponent } from './components/client-data/new-client/new-clie
   declarations: [
    ClientDataComponent,
    DashboardComponent,
-   NewClientComponent
+   NewClientComponent,
+   ClientInfoComponent
    //NavbarComponent
   ],
   imports: [
     CommonModule,
     LoggedRoutingModule,
-    HttpClientModule 
+    HttpClientModule,
+    ReactiveFormsModule 
   ],
   providers: [
     ClientService

@@ -1,0 +1,88 @@
+<section class="container-md d-flex flex-column lex-aling-center col-6 col-lg-4 flex-column gap-4">
+
+    
+    <h1 >Dados de {{client?.client.name}}</h1>
+    
+ 
+    <div  class="card mb-4">
+        <div class="card-body">
+            <p class="fs-5">Nome: {{client?.client.name}}</p>
+            <p>CPF: {{client?.client.cpf}}</p>
+            <p>Telefone {{client?.client.telefone}}</p>
+            <p>Email {{client?.client.email}}</p>
+            <p>Placa {{client?.client.plate}}</p>
+        <button class="btn btn-primary" (click)="editar()">Editar</button>
+        </div>
+       
+    </div>
+
+    <div *ngIf="isEdited" class="mb-4">
+        <div class="card form-newclient">
+            <div class="card-body">
+           
+               <form [formGroup]="formClient">
+                <div class="row  gap-2  ">
+                    <div class="mb-3 col-5">
+                        <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                        <input type="email" class="form-control" formControlName="name" id="exampleFormControlInput1"
+                            placeholder="Digite seu nome">
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" formControlName="email" id="exampleFormControlInput1"
+                            placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="row  gap-2  ">
+                    <div class="mb-3 col-5">
+                        <label for="exampleFormControlInput1" class="form-label">CPF</label>
+                        <input type="email" class="form-control" formControlName="cpf" id="exampleFormControlInput1"
+                            placeholder="000.000.000-00">
+                            <div *ngIf="isSubmitted && !!formCpf?.errors" class="mt-2">
+                                <div class="mensagem-error d-inline p-2">
+                                 CPF Invalido
+                                </div>
+                                <div class="mensagem-error d-inline p-2" *ngIf="formCpf?.errors?.['required']">
+                                  <i class="fas fa-times-circle p-1"></i>CPF é necessario
+                                </div>
+                                <div class="mensagem-error d-inline p-2" *ngIf="formCpf?.errors?.['minLength']">
+                                    <i class="fas fa-times-circle p-1"></i>é Necessario todos os caracteres do CPF
+                                  </div>
+                              </div>
+                    </div>
+                    <div class="mb-3 col-3">
+                        <label for="exampleFormControlInput1" class="form-label">Placa</label>
+                        <input type="email" class="form-control" formControlName="plate" id="exampleFormControlInput1"
+                            placeholder="XXXX-0000">
+                    </div>
+                    <div class="mb-3 col-3">
+                        <label for="exampleFormControlInput1" class="form-label">telefone</label>
+                        <input type="email" class="form-control" formControlName="telefone" id="exampleFormControlInput1"
+                            placeholder="(00) 00000-0000">
+                    </div>
+                </div>
+               
+                <div class="row  gap-2  ">
+                    <div class="mb-3 col-5">
+                        <label for="exampleFormControlInput1" class="form-label">Endereco</label>
+                        <input type="email" class="form-control" formControlName="endereco" id="exampleFormControlInput1"
+                            placeholder="Digite seu endereco">
+                    </div>
+                    <div class="mb-3 col-5 d-flex align-items-end">
+                        <button class="btn btn-primary" (click)="salvar()">Salvar</button>
+                    </div>
+                 
+                </div>
+            </form>
+            </div>
+            </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+         <button class="btn btn-primary" >Novo Cliente</button>
+        </div>
+      </div>
+
+</section>
+
