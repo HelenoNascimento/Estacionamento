@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 export class ClientService {
 
 
-  token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDlhNzBiODhhZmJlOGMzMjViYjAyZSIsImVtYWlsIjoidGVzdGUyQHRlc3RlLmNvbSIsImlhdCI6MTY4Mjc4MTU0OCwiZXhwIjoxNjgyNzg1MTQ4fQ.hgDs7F8hTFKhRB2fmm7inupydVQgJTj46MGIDBs46IE';
+  token = localStorage.getItem('token');
+
   private url ='http://localhost:4000/auth/client'
   private httoOptions = {
     headers: new HttpHeaders({

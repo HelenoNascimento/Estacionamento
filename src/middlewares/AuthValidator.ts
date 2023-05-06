@@ -1,7 +1,7 @@
 
 import { Request, Response, NextFunction } from "express";
 import { check, validationResult } from 'express-validator';
-
+const bodyParser = require('body-parser');
 export const validateSignup = [
   check('name')
     .trim()
@@ -31,7 +31,7 @@ export const signinValidator = [
     .normalizeEmail()
     .withMessage('Email inválido'),
   check('password')
-    .isLength({ min: 4 })
+    .isLength({ min: 2 })
     .withMessage('Senha precisa ter pelo menos 4 caracteres'),
   (req :Request, res: Response, next:NextFunction) => {
     const errors = validationResult(req);

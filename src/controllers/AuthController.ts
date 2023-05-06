@@ -1,6 +1,6 @@
 
 const { validationResult, matchedData} = require('express-validator');
-
+const bodyParser = require('body-parser');
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
@@ -15,6 +15,7 @@ dotevn.config();
 
     export const signin = async (req: Request, res: Response) =>{
         const {email, password} = req.body;
+        console.log("recebendo"+email,password)
         const errors = validationResult(req.body);
         if(!errors.isEmpty()){
             res.json({error: errors.mapped()})

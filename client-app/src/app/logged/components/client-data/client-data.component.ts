@@ -1,5 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
 import { ClientService } from '../../services/client.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-data',
@@ -9,7 +10,10 @@ import { ClientService } from '../../services/client.service';
 export class ClientDataComponent implements OnInit {
 
   clients!: any[];
-  constructor(private ClientService: ClientService){
+  constructor(
+    private router: Router,
+    private ClientService: ClientService
+    ){
 
   }
 
@@ -18,5 +22,10 @@ export class ClientDataComponent implements OnInit {
       this.clients =  data.clients;
       console.log(this.clients)
     })
+  }
+
+  loggout(){
+    localStorage.removeItem('token');
+    this.router.navigate(['']);
   }
 }

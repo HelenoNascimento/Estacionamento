@@ -3,6 +3,7 @@ import path from "path";
 import dotevn from "dotenv";
 import parkingRoute from './routes/parking'
 
+const bodyParser = require('body-parser');
 
 const cors = require('cors');
 
@@ -16,6 +17,9 @@ mongoConnect();
 
 const server = express();
 server.use(cors());
+
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true }));
 
 server.use(express.static(path.join(__dirname,'../public')));
 server.use(express.urlencoded({extended: true}));
