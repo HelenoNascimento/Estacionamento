@@ -1,0 +1,60 @@
+<section class="container-md d-flex justify-content-center align-items-center col-6 col-lg-4 flex-column gap-4">
+
+    <div class="mt-4">
+        <h1>Cadastro</h1>
+      </div>
+
+      <div class="formulario-cadastro mt-4">
+        <form [formGroup]="newAccontForm">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nome</label>
+
+            
+            <div class="input-group mb-2 ">
+                <span class="input-group-text"><i class="fas fa-user "></i></span>
+                <input type="text" formControlName="name" id="text" class="form-control shadow-none" placeholder="Nome">
+              </div>
+              <div *ngIf="isSubmitted && !!ForName?.errors">
+                <div class="mensagem-error d-inline p-2">
+                  Nome é necessario
+                </div>
+
+              </div>
+      
+              <label for="exampleInputEmail1" class="form-label">Email</label>
+            <div class="input-group mb-2 ">
+              
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+              <input type="email" formControlName="email" id="email" class="form-control shadow-none" placeholder="Email">
+            </div>
+            <div *ngIf="isSubmitted && !!formEmail?.errors">
+              <div class="mensagem-error d-inline p-2">
+                Email-Invalido
+              </div>
+              <div class="mensagem-error d-inline p-2" *ngIf="formEmail?.errors?.['required']">
+                <i class="fas fa-times-circle p-1"></i>E-mail é necessário!
+              </div>
+            </div>
+    
+    
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Senha</label>
+            <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div *ngIf="isSubmitted && !!formPassword?.errors">
+            <div class="mensagem-error d-inline p-2">
+              Senha necessaria
+            </div>
+            
+          </div>
+          <div class="mb-3" *ngIf="isSubmitted && errorMessage">
+            {{errorMessage}}
+          </div>
+          <p class="text-dark">Já possui conta? <span class="text-primary cursor-pointer" [routerLink]="['']">Entrar</span></p>
+          <button type="submit" class="btn btn-primary" (click)="newAccont()">Cadastrar</button>
+        </form>
+    
+      </div>
+    
+</section>

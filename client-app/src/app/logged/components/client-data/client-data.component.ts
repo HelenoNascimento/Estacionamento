@@ -24,6 +24,9 @@ export class ClientDataComponent implements OnInit {
     })
   }
 
+  newClient(){
+    this.router.navigate(['logged/newclient']);
+  }
   loggout(){
     localStorage.removeItem('token');
     this.router.navigate(['']);

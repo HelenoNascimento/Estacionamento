@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light flex-md-column flex-row align-items-center  py-2" *ngIf="checkLogged()">
+    <a class="navbar-brand" href="#">Meu Menu Vertical</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav flex-column">
+        <li class="nav-item">
+          <p class="nav-link active cursor-pointer" [routerLink]="['/logged/dashboard']">Dashboard</p>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link cursor-pointer" [routerLink]="['/logged/client']">Clientes</p>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link cursor-pointer" href="#">Vagas</p>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link cursor-pointer" href="#">Estacionamento</p>
+        </li>
+        <li class="nav-item">
+            <p class="nav-link cursor-pointer" href="#">Usuarios</p>
+          </li>
+        <li>
+            <a class="nav-link cursor-pointer" href="#" (click)="loggout()">Sair</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  

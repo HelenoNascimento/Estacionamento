@@ -1,4 +1,10 @@
-<section class="container-md">
+<section class="container-md d-flex flex-column lex-aling-center col-6 col-lg-4 flex-column gap-4">
+
+    <div class="card mt-4">
+        <div class="card-body">
+         <button class="btn btn-primary" (click)="newClient()">Novo Cliente</button>
+        </div>
+      </div>
     <h1>Lista de clientes</h1>
 
     <div *ngFor="let client of clients"  class="card">
@@ -12,7 +18,6 @@
         </div>
        
     </div>
-    <button class=" btn btn-primary" (click)="loggout()">Sair</button>
     
 </section>
 

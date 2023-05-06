@@ -1,0 +1,11 @@
+.container-md{
+    width: 100vw !important;
+    height: 100vh;
+}
+
+.info-vagas{
+    width: 90%;
+}
+.card-item{
+    /* width: 150px; */
+}

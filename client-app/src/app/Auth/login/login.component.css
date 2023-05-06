@@ -1,6 +1,16 @@
+.container-md{
+  width: 100vw !important;
+  max-width: 100% !important;;
+  
+}
+
 .mensagem-error {
     background-color: rgb(253, 147, 147);
     opacity: 0.6;
     border-radius: 5px;
     color: white;
+  }
+
+  .cursor-pointer{
+    cursor: pointer;
   }

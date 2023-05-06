@@ -1,4 +1,4 @@
-<section class="container-md d-flex flex-aling-center col-6 col-lg-4 flex-column gap-4 ">
+<section class="container-md d-flex justify-content-center align-items-center col-6 col-lg-4 flex-column gap-4 ">
 
   <div class="mt-4">
     <h1>LOGIN</h1>
@@ -37,6 +37,7 @@
       <div class="mb-3" *ngIf="isSubmitted && errorMessage">
         {{errorMessage}}
       </div>
+      <p class="text-dark">Ainda não tem conta? <span class="text-primary " [routerLink]="['/new-account']">Se cadastrar agora</span></p>
       <button type="submit" class="btn btn-primary" (click)="login()">Entrar</button>
     </form>
 

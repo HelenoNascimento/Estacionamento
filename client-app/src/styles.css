@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    width: 100vw;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}

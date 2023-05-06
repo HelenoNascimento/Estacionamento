@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
+
 interface LoginResponse {
   token: string;
 }
@@ -24,6 +25,15 @@ export class AuthService {
       tap(response => localStorage.setItem('token', response.token)),
       catchError(error => throwError(error))
     );
+  }
+
+  newAccont(name: string, email: string, password: String){
+    console.log('new', email, password);
+    return this.http.post<LoginResponse>(this.baseUrl + 'signup',{name, email,password})
+      .pipe(
+        tap(response =>localStorage.setItem('token', response.token)),
+        catchError(error =>throwError(error)),
+      );
   }
 
   isLoggedIn(): boolean {
