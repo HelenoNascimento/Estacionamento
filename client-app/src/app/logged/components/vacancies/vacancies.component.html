@@ -1,1 +1,58 @@
-<p>vacancies works!</p>
+<div class="card">
+    <h5 class="card-header">Todas as vagas</h5>
+   
+    <div class="card-body ">
+      <h5 class="card-title">Todas as vagas diponiveis e indisponiveis</h5>
+      
+
+      <div *ngIf="showVacancies" class="d-flex flex-column">
+    
+      <p>Numero da vaga {{vacancie.number}}</p> 
+      <p>Tipo: {{vacancie.type}}</p>
+      <p>Ocupado por {{vacancie.occupied_by}}</p> 
+
+      <div *ngIf="!vacancie.occupied_by">
+        <div class="row  gap-2 mt-1">
+            <form [formGroup]="FormEntry">
+            <div class="mb-3 col-3">
+                <label for="exampleFormControlInput1" class="form-label">Placa</label>
+                <input type="email" class="form-control" formControlName="plate" id="exampleFormControlInput1"
+                    placeholder="Digite a placa do veiculo">
+                    <div *ngIf="isSubmitted && !!formPlate?.errors" class="mt-2">
+                        <div class="mensagem-error d-inline p-2">
+                         Placa invalida
+                        </div>
+                        <div class="mensagem-error d-inline p-2" *ngIf="formPlate?.errors?.['required']">
+                          <i class="fas fa-times-circle p-1"></i>Placa é necessaria
+                        </div>
+                        <div class="mensagem-error d-inline p-2" *ngIf="formPlate?.errors?.['minLength']">
+                            <i class="fas fa-times-circle p-1"></i>é Necerrario todos os caracteres da palca
+                          </div>
+                      </div>
+            </div>
+            
+            <div class="mb-3 col-5 d-flex align-items-end">
+                <button class="btn btn-primary" (click)="handleEntry()">Entrar</button>
+            </div>
+        </form>
+        </div>
+      </div>
+     
+
+      <div *ngIf="vacancie.occupied_by" >
+        <button class="btn btn-primary" (click)="handleExit()">Sair</button>
+      </div>
+    </div>
+      <div class="vagas d-flex gap-2 flex-wrap mt-4">
+        <div class="card card-vagas d-flex align-items-center justify-content-center cursor-pointer" *ngFor="let vagas of vacancies let index = index"
+        [ngClass]="vagas.available ? 'free' : 'ocupped'"  (click)="showVacancie(vagas)" >
+            <p class="fs-2">{{vagas.number}}</p>
+          
+        </div>
+
+       
+        
+      </div>
+
+   
+  </div>

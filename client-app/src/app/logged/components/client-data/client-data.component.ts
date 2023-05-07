@@ -11,6 +11,7 @@ import { Client } from 'src/interfaces/Client';
 export class ClientDataComponent implements OnInit {
 
   clients!: any;
+  
   constructor(
     private router: Router,
     private ClientService: ClientService
@@ -21,6 +22,7 @@ export class ClientDataComponent implements OnInit {
   ngOnInit(): void {
     this.ClientService.getClients().subscribe(data =>{
       this.clients =  data.clients;
+      console.log(data)
       console.log(this.clients)
     })
   }
