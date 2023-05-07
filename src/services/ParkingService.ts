@@ -29,6 +29,15 @@ export const getVacanciesNumber= async(number: number) => {
     return await Vacancies.findOne({number: number});
 }
 
+export const getLasVacancieNumber = async () => {
+    try {
+      const ultimo_registro = await Vacancies.findOne().sort({ _id: -1 });
+      return ultimo_registro
+    } catch (err) {
+      console.error(err);
+    }
+};
+
 
 
 export const entryCar = async(plate: string, number: number) => {

@@ -8,18 +8,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './vacancies.component.html',
   styleUrls: ['./vacancies.component.css']
 })
-export class VacanciesComponent implements OnInit{
+export class VacanciesComponent implements OnInit {
 
   vacancies!: Vacancie[];
   vacancie!: Vacancie;
   showVacancies: boolean = false;
   FormEntry!: FormGroup;
 
+  Title: string = "";
+
   isSubmitted: boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private vacanciesService: VacanciesService
-  ){
+  ) {
 
   }
   ngOnInit(): void {
@@ -27,76 +29,104 @@ export class VacanciesComponent implements OnInit{
   }
 
   getAllVacancies(): void {
-
+    this.Title = 'Todas as vagas';
     this.FormEntry = this.formBuilder.group({
-      plate: ['', [Validators.required,Validators.minLength(7)]],
+      plate: ['', [Validators.required, Validators.minLength(7)]],
     });
 
 
-   this.vacanciesService.getVacancies().subscribe(data =>{
+    this.vacanciesService.getVacancies().subscribe(data => {
       this.vacancies = data;
       console.log(this.vacancies)
     })
   }
 
-  get formPlate(){
+  get formPlate() {
     return this.FormEntry.get('plate');
   }
-  
- 
 
-  showVacancie(vacancie :Vacancie){
+
+
+  showVacancie(vacancie: Vacancie) {
     this.showVacancies = true;
-    if(this.vacancie?.number == vacancie?.number){
+    if (this.vacancie?.number == vacancie?.number) {
       this.showVacancies = !this.showVacancies;
     }
     this.vacancie = vacancie
-  
+
   }
 
-  handleExit(){
+  handleExit() {
     const data = {
-      number : this.vacancie.number.toString()
+      number: this.vacancie.number.toString()
     }
-   // const number = this.vacancie.number.toString();
+    // const number = this.vacancie.number.toString();
     this.vacanciesService.handleExit(data).subscribe(
-      (response) =>{
+      (response) => {
         console.log(response);
         this.getAllVacancies();
         this.showVacancies = false;
       },
-      (error) =>{
+      (error) => {
         console.log(error);
       }
     )
   }
 
-  handleEntry(){
-  this.isSubmitted = true;
-
-  if(!this.FormEntry.hasError){
-    return
-  }else{
-
-    const data = {
-      number: this.vacancie.number,
-      plate: this.FormEntry.value.plate,
-
-    }
-    this.vacanciesService.handleEntry(data).subscribe(
-      (response) =>{
+  handleAdd(){
+    this.vacanciesService.handleAdd().subscribe(
+      (response) => {
         console.log(response);
         this.getAllVacancies();
-        this.showVacancies = false;
-        this.isSubmitted = false;
-        this.FormEntry.reset();
       },
-      (error) =>{
+      (error) => {
         console.log(error)
       }
     )
   }
-    
+
+  handleEntry() {
+    this.isSubmitted = true;
+
+    if (!this.FormEntry.hasError) {
+      return
+    } else {
+
+      const data = {
+        number: this.vacancie.number,
+        plate: this.FormEntry.value.plate,
+
+      }
+      this.vacanciesService.handleEntry(data).subscribe(
+        (response) => {
+          console.log(response);
+          this.getAllVacancies();
+          this.showVacancies = false;
+          this.isSubmitted = false;
+          this.FormEntry.reset();
+        },
+        (error) => {
+          console.log(error)
+        }
+      )
+    }
+
+  }
+
+
+  showAvailable(){
+    this.Title = 'Vagas Disponiveis'
+    this.vacanciesService.showAvailable().subscribe(data => {
+      this.vacancies = data;
+      console.log(this.vacancies)
+    })
+  }
+  showUnavailable(){
+    this.Title = 'Vagas Indisponiveis'
+    this.vacanciesService.showUnavailable().subscribe(data => {
+      this.vacancies = data;
+      console.log(this.vacancies)
+    })
   }
 }
 

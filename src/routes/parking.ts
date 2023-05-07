@@ -40,6 +40,7 @@ router.get('/vagas/indisponiveis',auth.requireAuth, ParkingController.getUnavail
 router.put('/vaga/entry',auth.requireAuth, ParkingController.entryCar);
 router.put('/vaga/exit',auth.requireAuth, ParkingController.exitCar);
 router.post('/vaga/add',auth.requireAuth, ParkingController.newVacancie);
+router.post('/vaga/add-auto',auth.requireAuth, ParkingController.newAutoVacancie);
 router.post('/user/add',auth.requireAuth, UserController.newUser)
 
 

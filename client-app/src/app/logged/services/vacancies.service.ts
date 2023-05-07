@@ -28,7 +28,38 @@ export class VacanciesService {
     console.log(data);
     return this.http.put(this.url + '/vaga/exit',data,this.httpOptions)
   }
+  showAvailable(){
+    return this.http.get<any>(this.url + '/vagas/disponiveis', this.httpOptions).pipe(
+      map(response => response.Vagas?.map((Vagas: Vacancie) => ({
+        _id: Vagas._id,
+        number: Vagas.number,
+        type: Vagas.type,
+        available: Vagas.available,
+        occupied_by: Vagas.occupied_by,
+        parking: Vagas.parking,
+        //mapeie outras propriedades aqui, se houver
+      })))
+    );
+  }
 
+  handleAdd(){
+    const data = '';
+    return this.http.post(this.url + '/vaga/add-auto',data,this.httpOptions);
+  }
+
+  showUnavailable(){
+    return this.http.get<any>(this.url + '/vagas/indisponiveis', this.httpOptions).pipe(
+      map(response => response.Vagas?.map((Vagas: Vacancie) => ({
+        _id: Vagas._id,
+        number: Vagas.number,
+        type: Vagas.type,
+        available: Vagas.available,
+        occupied_by: Vagas.occupied_by,
+        parking: Vagas.parking,
+        //mapeie outras propriedades aqui, se houver
+      })))
+    );
+  }
 
   // newClients(name: string, email: string, cpf: number, plate: string, telefone: string, endereco: string ): Observable <Client>{
   //   const data = {

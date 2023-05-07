@@ -74,6 +74,21 @@ export const entryCar = async(req: Request, res: Response) => {
     res.json({success: vacacies,moviment });
 
 }
+export const newAutoVacancie = async(req: Request, res: Response) =>{
+    let type = "carro" 
+    let vacanciesNumber = await ParkingService.getLasVacancieNumber();
+    let number = vacanciesNumber?.number
+    if(!vacanciesNumber){
+        res.json({error: "Numero de vaga indisponivel"})
+        return;
+    }
+    if(!number){
+        res.json({error: "Numero de vaga indisponivel"})
+        return;
+    }
+    const vacancies = await ParkingService.newVacancies(number+1,type)
+     res.json({vaga: vacancies});
+}
 
 export const newVacancie = async(req: Request, res: Response) =>{
     const { number, type} = req.body;
