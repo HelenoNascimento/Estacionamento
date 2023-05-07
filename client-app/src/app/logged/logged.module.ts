@@ -9,6 +9,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NewClientComponent } from './components/client-data/new-client/new-client.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ClientInfoComponent } from './components/client-data/client-info/client-info.component';
+import { VacanciesComponent } from './components/vacancies/vacancies.component';
 
 //import { NavbarComponent } from './components/navbar/navbar.component';
 
@@ -18,7 +19,8 @@ import { ClientInfoComponent } from './components/client-data/client-info/client
    ClientDataComponent,
    DashboardComponent,
    NewClientComponent,
-   ClientInfoComponent
+   ClientInfoComponent,
+   VacanciesComponent
    //NavbarComponent
   ],
   imports: [

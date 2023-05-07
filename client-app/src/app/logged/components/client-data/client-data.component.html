@@ -30,6 +30,7 @@
                 <td>{{client.telefone}}</td>
                 <td>{{client.endereco}}</td>
                 <td>{{client.plate}}</td>
+                
                 <td>
                     <button class="btn btn-info" (click)="infoClient(client._id)">Detalhes</button>
                   </td>
@@ -40,17 +41,7 @@
 
     </div>
 
-    <div *ngFor="let client of clients"  class="card mb-4">
-        <div class="card-body">
-            <p class="fs-5">Nome: {{client.name}}</p>
-            <p>CPF: {{client.cpf}}</p>
-            <p>Telefone {{client.telefone}}</p>
-            <p>Email {{client.email}}</p>
-            <p>Placa {{client.plate}}</p>
-        
-        </div>
-       
-    </div>
+   
     
 </section>
 

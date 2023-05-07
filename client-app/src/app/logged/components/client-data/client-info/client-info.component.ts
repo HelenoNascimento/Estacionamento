@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClientService } from 'src/app/logged/services/client.service';
+import { Client } from 'src/interfaces/Client';
 
 @Component({
   selector: 'app-client-info',
@@ -76,6 +77,7 @@ export class ClientInfoComponent implements OnInit {
       return;
     } else {
       const data = {
+        _id:! '',
         name: this.formClient.value.name,
         email: this.formClient.value.email,
         cpf: this.formClient.value.cpf,
