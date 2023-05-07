@@ -1,0 +1,57 @@
+<section class="container-md mt-4 d-flex flex-column lex-aling-center col-6 col-lg-4 flex-column gap-4 ">
+
+    <div class="col-6">
+        <h1>Novo Cliente</h1>
+    </div>
+
+    <div class="card form-newclient">
+        <div class="card-body">
+       
+           <form [formGroup]="formClient">
+            <div class="row  gap-2  ">
+                <div class="mb-3 col-5">
+                    <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                    <input type="email" class="form-control" formControlName="name" id="exampleFormControlInput1"
+                        placeholder="Digite seu nome">
+                </div>
+                <div class="mb-3 col-6">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" formControlName="email" id="exampleFormControlInput1"
+                        placeholder="name@example.com">
+                </div>
+            </div>
+            <div class="row  gap-2  ">
+                <div class="mb-3 col-5">
+                    <label for="exampleFormControlInput1" class="form-label">CPF</label>
+                    <input type="email" class="form-control" formControlName="cpf" id="exampleFormControlInput1"
+                        placeholder="000.000.000-00">
+                </div>
+                <div class="mb-3 col-3">
+                    <label for="exampleFormControlInput1" class="form-label">Placa</label>
+                    <input type="email" class="form-control" formControlName="plate" id="exampleFormControlInput1"
+                        placeholder="XXXX-0000">
+                </div>
+                <div class="mb-3 col-3">
+                    <label for="exampleFormControlInput1" class="form-label">telefone</label>
+                    <input type="email" class="form-control" formControlName="telefone" id="exampleFormControlInput1"
+                        placeholder="(00) 00000-0000">
+                </div>
+            </div>
+           
+            <div class="row  gap-2  ">
+                <div class="mb-3 col-5">
+                    <label for="exampleFormControlInput1" class="form-label">Endereco</label>
+                    <input type="email" class="form-control" formControlName="endereco" id="exampleFormControlInput1"
+                        placeholder="Digite seu endereco">
+                </div>
+                <div class="mb-3 col-5 d-flex align-items-end">
+                    <button class="btn btn-primary" (click)="newClient()">Cadastrar</button>
+                </div>
+             
+            </div>
+        </form>
+        </div>
+    </div>
+
+
+</section>

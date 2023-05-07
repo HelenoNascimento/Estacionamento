@@ -5,16 +5,29 @@ import { LoggedRoutingModule } from './logged.routing.module';
 import { ClientDataComponent } from './components/client-data/client-data.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientService } from './services/client.service';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NewClientComponent } from './components/client-data/new-client/new-client.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ClientInfoComponent } from './components/client-data/client-info/client-info.component';
+import { VacanciesComponent } from './components/vacancies/vacancies.component';
+
+//import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
-   ClientDataComponent
+   ClientDataComponent,
+   DashboardComponent,
+   NewClientComponent,
+   ClientInfoComponent,
+   VacanciesComponent
+   //NavbarComponent
   ],
   imports: [
     CommonModule,
     LoggedRoutingModule,
-    HttpClientModule 
+    HttpClientModule,
+    ReactiveFormsModule 
   ],
   providers: [
     ClientService

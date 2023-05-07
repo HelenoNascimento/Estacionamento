@@ -8,6 +8,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './Auth/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NewAccountComponent } from './Auth/new-account/new-account.component';
+import { NavbarComponent } from './logged/components/navbar/navbar.component';
 
 
 
@@ -15,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     LoginComponent,
+    NavbarComponent,
+    NewAccountComponent,
   ],
   imports: [
     BrowserModule,

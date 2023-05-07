@@ -2,7 +2,8 @@
     width: 100vw !important;
     max-width: 100% !important;;
     /* margin-left: 250px; */
-  }
-.card{
-  width: 80% !important;
+}
+
+.form-newclient{
+width: 80vw;
 }

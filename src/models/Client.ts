@@ -16,6 +16,7 @@ const schema = new Schema <clientType>({
     telefone: String,
     email: String,
     plate: String,
+    endereco: String,
 })
 
 const modelName: string = "Client";

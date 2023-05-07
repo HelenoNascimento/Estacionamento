@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit{
           (response) => {
               console.log(response);
               console.log("entrou")
-              this.router.navigate(['logged/client']);
+              this.router.navigate(['logged/dashboard']);
           },
           (error) => {
             this.errorMessage = error.error;
