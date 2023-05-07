@@ -1,0 +1,20 @@
+.vagas{
+    width: 80vw;
+   height: auto;
+}
+
+.card-vagas{
+    width: 140px !important;
+    height: 140px;
+}
+
+.ocupped{
+    background-color: rgb(252, 111, 111);
+}
+
+.free{
+    background-color: rgb(186, 250, 149);
+}
+.card-new{
+    background-color: rgb(135, 253, 253);
+}

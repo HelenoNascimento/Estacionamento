@@ -12,6 +12,7 @@ export class NewClientComponent implements OnInit{
 
   formClient!: FormGroup;
   isSubmitted = false;
+  
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
