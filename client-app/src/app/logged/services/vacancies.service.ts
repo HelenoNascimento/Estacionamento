@@ -15,6 +15,7 @@ export class VacanciesService {
       'Authorization': 'Bearer ' + this.token
     })
   }
+  
 
   constructor(
     private http: HttpClient

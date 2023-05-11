@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VacanciesService } from '../../services/vacancies.service';
+import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,8 +12,11 @@ export class DashboardComponent implements OnInit {
   vacancies: any;
   vacanciesAvailable: any;
   vacanciesUnavailable: any;
+  clients: any;
+
   constructor(
-    private vacanciesService: VacanciesService
+    private vacanciesService: VacanciesService,
+    private clientService: ClientService
   ){
 
   }
@@ -31,6 +35,10 @@ export class DashboardComponent implements OnInit {
     })
     this.vacanciesService.showUnavailable().subscribe(data => {
       this.vacanciesUnavailable = data.length;  
+    })
+    this.clientService.getClients().subscribe(data =>{
+      this.clients =  data.clients.length;
+     
     })
   }
 }

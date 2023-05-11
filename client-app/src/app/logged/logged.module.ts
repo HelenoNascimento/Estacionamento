@@ -10,6 +10,7 @@ import { NewClientComponent } from './components/client-data/new-client/new-clie
 import { ReactiveFormsModule } from '@angular/forms';
 import { ClientInfoComponent } from './components/client-data/client-info/client-info.component';
 import { VacanciesComponent } from './components/vacancies/vacancies.component';
+import { UserComponent } from './components/user/user.component';
 
 //import { NavbarComponent } from './components/navbar/navbar.component';
 
@@ -20,7 +21,8 @@ import { VacanciesComponent } from './components/vacancies/vacancies.component';
    DashboardComponent,
    NewClientComponent,
    ClientInfoComponent,
-   VacanciesComponent
+   VacanciesComponent,
+   UserComponent
    //NavbarComponent
   ],
   imports: [

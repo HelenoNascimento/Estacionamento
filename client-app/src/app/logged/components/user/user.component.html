@@ -1,0 +1,11 @@
+<section class="container-md mt-4 d-flex flex-column lex-aling-center flex-column gap-4 ">
+    <div class="d-flex align-items-center mt-4">
+        <h1 class="">Usuarios</h1>
+
+    </div>
+
+    <div class="card " *ngFor="let user of users let index = index">
+        <p class="fs-5 ps-4">Nome: {{user.name}}</p>
+        <p class="fs-5 ps-4">Email: {{user.email}}</p>
+    </div>
+</section>

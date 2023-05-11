@@ -1,3 +1,14 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 " *ngIf="checkLogged() && !isLoginPage()">
+            <app-navbar ></app-navbar>
+        </div>
+        <div class="col-md-9 " [ngClass]="{'col-md-12': isLoginPage()}">
+            <router-outlet></router-outlet>
+          </div>
+    </div>
+
+</section>
+
+
 
