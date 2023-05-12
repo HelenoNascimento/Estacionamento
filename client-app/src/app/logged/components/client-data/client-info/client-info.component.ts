@@ -22,10 +22,10 @@ export class ClientInfoComponent implements OnInit {
     private router: Router,
   ) {
     this.formClient = this.formBuilder.group({
-      name: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
       cpf: ['', [Validators.required, Validators.minLength(12)]],
-      plate: [''],
+      plate: ['',[Validators.required]],
       telefone: [''],
       endereco: [''],
     });
@@ -39,6 +39,12 @@ export class ClientInfoComponent implements OnInit {
 
   get formCpf() {
     return this.formClient.get('cpf');
+  }
+  get formName(){
+    return this.formClient.get('name');
+  }
+  get formPlate(){
+    return this.formClient.get('plate');
   }
   editar() {
     this.isEdited = !this.isEdited;

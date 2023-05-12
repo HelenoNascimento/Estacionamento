@@ -13,6 +13,14 @@
                     <label for="exampleFormControlInput1" class="form-label">Nome</label>
                     <input type="email" class="form-control" formControlName="name" id="exampleFormControlInput1"
                         placeholder="Digite seu nome">
+                    <div *ngIf="isSubmitted && formName?.errors" class="mt-2">
+                        <div class="mensagem-error d-inline p-2" *ngIf="formName?.errors?.['required']">
+                            Nome é Necessario
+                        </div>
+                        <div *ngIf="formName?.errors?.['minlength']" class="mt-2 mensagem-error d-inline p-2">                        
+                                Nome precisa ter no minimo 2 caracteres
+                        </div>
+                    </div>
                 </div>
                 <div class="mb-3 col-6">
                     <label for="exampleFormControlInput1" class="form-label">Email address</label>
@@ -25,11 +33,25 @@
                     <label for="exampleFormControlInput1" class="form-label">CPF</label>
                     <input type="email" class="form-control" formControlName="cpf" id="exampleFormControlInput1"
                         placeholder="000.000.000-00">
+                        <div *ngIf="isSubmitted && !!formCpf?.errors" class="mt-2">
+                         
+                            <div class="mensagem-error d-inline p-2" *ngIf="formCpf?.errors?.['required']">
+                              <i class="fas fa-times-circle p-1"></i>CPF é necessario
+                            </div>
+                            <div class="mensagem-error d-inline p-2" *ngIf="formCpf?.errors?.['minlength']">
+                                <i class="fas fa-times-circle p-1"></i>CPF Invalido
+                              </div>
+                          </div>
                 </div>
                 <div class="mb-3 col-3">
                     <label for="exampleFormControlInput1" class="form-label">Placa</label>
                     <input type="email" class="form-control" formControlName="plate" id="exampleFormControlInput1"
                         placeholder="XXXX-0000">
+                        <div *ngIf="isSubmitted && formPlate?.errors" class="mt-2">
+                            <div class="mensagem-error d-inline p-2">
+                                Placa é Necessario
+                            </div>
+                        </div>
                 </div>
                 <div class="mb-3 col-3">
                     <label for="exampleFormControlInput1" class="form-label">telefone</label>
