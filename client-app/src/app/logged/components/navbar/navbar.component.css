@@ -2,7 +2,7 @@ nav {
    /* torna a navbar fixa na tela */
    /* position: fixed;  */
     height: 100vh; /* define a altura da navbar igual à altura da tela */
-    width: 200px; /* define a largura da navbar */
+    width: 90%; /* define a largura da navbar */
   
 
   }

@@ -19,10 +19,10 @@ export class NewClientComponent implements OnInit{
     private clientService: ClientService
   ){
     this.formClient = this.formBuilder.group({
-      name: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      cpf: ['', Validators.required],
-      plate: [ '' ],
+      cpf: ['', [Validators.required, Validators.minLength(12)]],
+      plate: [ '',[Validators.required]],
       telefone: [''],
       endereco: [''],
 
@@ -33,8 +33,18 @@ export class NewClientComponent implements OnInit{
   ngOnInit(): void {
     
   }
-
+  get formCpf() {
+    return this.formClient.get('cpf');
+  }
+  get formName(){
+    return this.formClient.get('name');
+  }
+  get formPlate(){
+    return this.formClient.get('plate');
+  }
+  
   newClient(){
+    console.log(this.formClient);
     this.isSubmitted = true;
     const name = (this.formClient.get('name') as FormControl).value;
     const email = (this.formClient.get('email') as FormControl).value;
@@ -56,6 +66,8 @@ export class NewClientComponent implements OnInit{
         }
       )
     }
+
+
   // this.authService.newAccont(name,email, password).subscribe(
   //         (response) => {
   //             console.log(response);

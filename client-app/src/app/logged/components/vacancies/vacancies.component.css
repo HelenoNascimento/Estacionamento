@@ -1,11 +1,12 @@
 .vagas{
-    width: 80vw;
+    width: 100vw;
+    max-width: 100%;
    height: auto;
 }
 
 .card-vagas{
-    width: 140px !important;
-    height: 140px;
+    width: 120px !important;
+    height: 120px;
 }
 
 .ocupped{
