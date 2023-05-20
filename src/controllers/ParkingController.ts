@@ -69,9 +69,9 @@ export const entryCar = async(req: Request, res: Response) => {
         res.json({error: "Vaga ja ocupada"});
         return;
     }
-    let vacacies = await ParkingService.entryCar(plate, number);
-    let moviment = await MovementService.MovimentEntry(plate, number);
-    res.json({success: vacacies,moviment });
+    let data = await ParkingService.entryCar(plate, number);
+   // let moviment = await MovementService.MovimentEntry(plate, number);
+    res.json({success: data });
 
 }
 export const newAutoVacancie = async(req: Request, res: Response) =>{

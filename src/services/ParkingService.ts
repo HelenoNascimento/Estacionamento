@@ -1,5 +1,7 @@
+
 import Parking from '../models/Parking';
 import Vacancies from '../models/Vacancies';
+import { MovimentEntry, MovimentExity } from './MovementService';
 
 export const getParking = async() =>{
     let vaAvailable = await Vacancies.find({available: true})
@@ -49,7 +51,15 @@ export const entryCar = async(plate: string, number: number) => {
     vacancies.available = false;
     vacancies.occupied_by = plate;
     await vacancies.save();
-    return vacancies;
+
+    
+    let moviment = await MovimentEntry(plate, number);
+
+    const data = {
+        moviment: moviment,
+        vancacies: vacancies
+    }
+    return data;
   };
 
 export const exitCar = async(number: number) =>{
@@ -57,10 +67,19 @@ export const exitCar = async(number: number) =>{
     if(!vacancies){
         return
     }
+
+
+    let moviment = await MovimentExity(vacancies.occupied_by,number);
+  
     vacancies.available = true;
     vacancies.occupied_by = '';
     await vacancies.save();
-    return vacancies;
+
+    const data = {
+        moviment,
+        vacancies
+    }
+    return data;
 }
 
 export const newVacancies = async(number: number, type:string) =>{
